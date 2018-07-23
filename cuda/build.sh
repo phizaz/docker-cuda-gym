@@ -1,0 +1,1 @@
+docker build -t ta/cuda:9.0-ubuntu18.04 .
