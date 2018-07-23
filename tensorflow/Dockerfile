@@ -24,7 +24,10 @@ RUN wget --quiet https://repo.anaconda.com/miniconda/Miniconda3-4.5.4-Linux-x86_
 # Tensorflow + Jupyterlab
 ###########################################
 ENV HOME /root
-RUN pip install https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow_gpu-1.9.0-cp36-cp36m-linux_x86_64.whl \
+# installing both cpu and gpu versions
+# because installing gpu version alone will give only "tensorflow-gpu" package, 
+# which is easily overriden by "tensorflow" (when you installing some packages) which has no gpu support
+RUN pip install tensorflow https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow_gpu-1.9.0-cp36-cp36m-linux_x86_64.whl \
     && rm -rf ~/.cache/pip
 
 # install jupyterlab
