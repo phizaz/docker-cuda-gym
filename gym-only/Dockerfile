@@ -72,6 +72,7 @@ EXPOSE 5900
 # startup
 COPY image /
 ENV HOME /root
+ENV SHELL /bin/bash
 WORKDIR /root
 # services like lxde, xvfb, x11vnc will be started
 ENTRYPOINT ["/startup.sh"]
