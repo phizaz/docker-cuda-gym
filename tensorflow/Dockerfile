@@ -92,8 +92,14 @@ EXPOSE 6006
 
 # startup
 COPY image /
+
 ENV HOME /root
 ENV SHELL /bin/bash
+
+# no password and token for jupyter
+ENV JUPYTER_PASSWORD ""
+ENV JUPYTER_TOKEN ""
+
 WORKDIR /root
 # services like lxde, xvfb, x11vnc, jupyterlab will be started
 ENTRYPOINT ["/startup.sh"]
