@@ -3,6 +3,9 @@
 ########################################################
 FROM ubuntu:18.04
 
+# Thai mirror
+RUN sed "s/archive/th.archive/" -i /etc/apt/sources.list
+
 RUN apt-get update && apt-get install -y build-essential
 
 # set cuda paths
@@ -40,4 +43,3 @@ RUN CUDNN_TAR_FILE="cudnn-9.0-linux-x64-v7.1.tgz" \
     && cp -P cuda/lib64/libcudnn* /usr/local/cuda-9.0/lib64/ \
     && chmod a+r /usr/local/cuda-9.0/lib64/libcudnn* \
     && rm -rf /tmp/cudnn
-
