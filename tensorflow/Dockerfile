@@ -33,9 +33,6 @@ RUN pip install tensorflow https://storage.googleapis.com/tensorflow/linux/gpu/t
 # install jupyterlab
 RUN conda install -y jupyterlab && conda clean --all
 
-# default jupyter password (will be generated thus if .jupyter not exists)
-ENV JUPYTER_PASSWORD 123456
-
 ###########################################
 # X11 VNC XVFB
 # integrated from https://github.com/fcwu/docker-ubuntu-vnc-desktop
